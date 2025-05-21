@@ -1,6 +1,6 @@
 ## Rodando avaliações
 
-#### 1. inference_batch
+### 1. inference_batch
 ##### **Input**
 
 ###### **AVISO**: Rodar os modelos com path e sem path **SEPARADAMENTE**
@@ -52,7 +52,7 @@ Lembre de não misturar modelos com e sem path. Modelos com separadores diferent
 O output será um json e um pdf com o nome `level_generation_results_{data_e_horario}.json` e `level_generation_results_{data_e_horario_e_horario}._e_horariopdf`sma do arquivo de input.
 sma do arquivo de input.
 
-#### 2. metrics_batch
+### 2. metrics_batch
 ##### **Input**
 
 O input será o JSON gerado pelo `inference_batch` junto com o tipo de jogo e se o modelo usado for com caminho. Como o anterior, não pode misturar modelos com e sem path.

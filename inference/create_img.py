@@ -38,7 +38,7 @@ def convert_mario_to_png(
         tiles_dir = TILE_DIR
     chars2pngs = {
         "-": Image.open(f"{tiles_dir}/sky2.png"),
-        "#": Image.open(f"{tiles_dir}/smb-unpassable.png"),
+        "X": Image.open(f"{tiles_dir}/smb-unpassable.png"),
         "S": Image.open(f"{tiles_dir}/brick2.png"),
         "?": Image.open(f"{tiles_dir}/special_question_block.png"),
         "Q": Image.open(f"{tiles_dir}/special_question_block.png"),

@@ -49,8 +49,8 @@ Lembre de não misturar modelos com e sem path. Modelos com separadores diferent
 
 ##### **Output**
 
-O output será um json e um pdf com o nome `level_generation_results_{data}.json` e `level_generation_results_{data}.pdf`
-
+O output será um json e um pdf com o nome `level_generation_results_{data_e_horario}.json` e `level_generation_results_{data_e_horario_e_horario}._e_horariopdf`sma do arquivo de input.
+sma do arquivo de input.
 
 #### 2. metrics_batch
 ##### **Input**
@@ -72,3 +72,9 @@ path = False
 - **input_json_paths:** JSONs dos resultados obtidos no JSON. Pode misturar familias de modelos diferentes (qwen, llama...)
 - **game_type:** O jogo a ser avaliado. Usar as opções do comentário, são diferentes das opções do `inference_batch`
 - **path:** Se os modelos são com caminho ou não. False para sem caminho, True para com caminho.
+
+##### **Output**
+
+Um JSON com as metricas adicionais nesse formato: `with_similarity_level_generation_results_{data_e_horario}.json`
+
+A data_e_horario é a mesma do arquivo de input.

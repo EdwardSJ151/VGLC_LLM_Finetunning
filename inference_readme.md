@@ -52,6 +52,8 @@ Lembre de não misturar modelos com e sem path. Modelos com separadores diferent
 O output será um json e um pdf com o nome `level_generation_results_{data_e_horario}.json` e `level_generation_results_{data_e_horario_e_horario}._e_horariopdf`sma do arquivo de input.
 sma do arquivo de input.
 
+<br>
+
 ### 2. metrics_batch
 ##### **Input**
 

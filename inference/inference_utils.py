@@ -66,6 +66,11 @@ def extract_level_representation(llm_output, model_type="llama-3", orientation="
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
     
+    if "|" in level_content and "\n" not in level_content:
+        separator = "|"
+    elif "\n" in level_content and "|" not in level_content:
+        separator = "\n"
+
     if orientation == "vertical":
         level_content = VerticalLevel.reconstruct_level_from_vertical_bar(level_content, separator)
         

@@ -66,6 +66,9 @@ def extract_level_representation(llm_output, model_type="llama-3", orientation="
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
     
+    print("New level content:")
+    print(level_content)
+
     if "|" in level_content and "\n" not in level_content:
         separator = "|"
     elif "\n" in level_content and "|" not in level_content:
@@ -127,7 +130,7 @@ def fix_level_format_extra(level_str, orientation="horizontal", separator="\n", 
     if orientation == "vertical":
         level_str = VerticalLevel.reconstruct_level_from_vertical_bar(level_str, separator)
     
-    lines = level_str.split('\n')
+    lines = level_str.split(separator)
     
     # Handle line quantity enforcement
     if enforce_shape in ["line", "both"] and line_quantity is not None:

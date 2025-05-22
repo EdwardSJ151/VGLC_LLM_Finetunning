@@ -118,6 +118,12 @@ def fix_level_format(level_str, orientation="horizontal", separator="\n", empty_
 def fix_level_format_extra(level_str, orientation="horizontal", separator="\n", empty_space='-', 
                      line_quantity=None, column_quantity=None, enforce_shape=None, add_ground=None,
                      use_original_logic_on_column=False):
+
+    if "|" in level_str and "\n" not in level_str:
+        separator = "|"
+    elif "\n" in level_str and "|" not in level_str:
+        separator = "\n"
+
     if orientation == "vertical":
         level_str = VerticalLevel.reconstruct_level_from_vertical_bar(level_str, separator)
     
@@ -139,21 +145,16 @@ def fix_level_format_extra(level_str, orientation="horizontal", separator="\n", 
         column_adjusted = True
         for i in range(len(lines)):
             if len(lines[i]) > column_quantity:
-                # Trim to column_quantity
                 lines[i] = lines[i][:column_quantity]
             elif len(lines[i]) < column_quantity:
-                # Pad with empty_space
-                # For last line, use add_ground for padding if specified
                 if i == len(lines) - 1 and add_ground is not None:
                     lines[i] = lines[i] + (add_ground * (column_quantity - len(lines[i])))
                 else:
                     lines[i] = lines[i] + (empty_space * (column_quantity - len(lines[i])))
     
-    # Apply original column adjustment logic if requested and not already enforced
     if (enforce_shape is None or use_original_logic_on_column) and not column_adjusted:
         line_lengths = [len(line) for line in lines]
         
-        # Original trimming logic
         changed = True
         while changed:
             changed = False
@@ -172,7 +173,6 @@ def fix_level_format_extra(level_str, orientation="horizontal", separator="\n", 
             if not lines_trimmed:
                 break
         
-        # Original padding logic
         max_length = max(line_lengths)
         for i in range(len(lines)):
             if line_lengths[i] < max_length:

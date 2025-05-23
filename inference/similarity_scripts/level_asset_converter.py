@@ -67,7 +67,7 @@ def get_chars2pngs(game_type):
             "M": Image.open(f"{tiles_dir}/main_char.png"),
             ".": Image.fromarray(np.uint8(np.zeros((16, 16)))),
         }
-    elif game_type == "kid_icarus":
+    elif game_type == "kid_icarus" or game_type == "kid_icarus_small":
         tiles_dir = os.path.join(TILE_DIR, "kid_icarus")
         chars2pngs = {
             "#": Image.open(f"{tiles_dir}/block.png"),
